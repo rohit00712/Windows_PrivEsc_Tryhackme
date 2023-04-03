@@ -29,6 +29,14 @@ Windows Privilege Escalation Techniques
 	
     - To transfer file from Linux to windows through smb .
         * `smbclient -U <username> "//<windows_IP>/Tools"
+	
+- Transfer file from windows to linux.
+	- If your local OS is Unix-like, then try:
+	* `scp root@<Machine_IP>:/root/file.txt /local_path/file.txt` for file transfer
+	* `scp -r username@host.com:/path/to/dir local/path` for directory transfer
+	
+	- If your local OS is Windows ,then you should use `pscp.exe` utility. For example, below command will download file.txt from remote to `D:` disk of local machine.
+	* `pscp.exe username@remoteHost:/remote/dir/file.txt d:\`
 
 ### Windows Privilege Escalation enumeration Tools:
     - `winPEASany.exe`
